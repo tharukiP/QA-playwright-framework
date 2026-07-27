@@ -2,7 +2,7 @@ const uniqueNumber = Date.now();
 
 export const userRolesData = {
   validRole: {
-    name: `QA Automation Role ${uniqueNumber}`,
+    name: `QA Engineer ${uniqueNumber}`,
     description:
       'This user role was created by Playwright automation.',
   },
