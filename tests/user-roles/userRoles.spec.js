@@ -10,7 +10,7 @@ test.describe('User Roles Page Tests', () => {
   
     // Uses saved login authentication.
     // No login page and no sidebar navigation.
-    await userRolesPage.open();
+    await userRolesPage.open(); 
   });
 
   test(
