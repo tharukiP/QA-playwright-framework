@@ -41,74 +41,9 @@ setup('login and save authentication', async ({ page }) => {
   await page.waitForURL('**/dashboard', {
     timeout: 60000,
   });
-
-  await expect(page).toHaveURL(
-    /\/dashboard\/?$/
-  );
-
-  // =====================================
-  // Click System Configurations
-  // =====================================
-
-  const systemConfigurationButton = page.locator(
-    'a[href="/system_configurations"]'
-  );
-
-  await expect(systemConfigurationButton).toBeVisible({
-    timeout: 30000,
-  });
-
-  await systemConfigurationButton.click();
-
-  await expect(page).toHaveURL(
-    /\/system_configurations\/?$/
-  );
-
-  // =====================================
-  // Hover People & Access
-  // =====================================
-
-  const peopleAndAccessIcon = page
-    .locator('a:has(span[title="People & Access"])')
-    .first();
-
-  await expect(peopleAndAccessIcon).toBeVisible({
-    timeout: 30000,
-  });
-
-  await peopleAndAccessIcon.hover();
-
-  // =====================================
-  // Click User Roles
-  // =====================================
-
-  const userRolesLink = page.locator(
-    'a[href="/user_roles"]'
-  );
-
-  await expect(userRolesLink).toBeVisible({
-    timeout: 30000,
-  });
-
-  await userRolesLink.click();
-
-  // =====================================
-  // Verify User Roles page
-  // =====================================
-
-  await expect(page).toHaveURL(
-    /\/user_roles\/?$/
-  );
-
-  await expect(
-    page.getByRole('heading', {
-      name: /User Roles/i,
-    })
-  ).toBeVisible({
-    timeout: 30000,
-  });
-
-  // Save authenticated session
+  
+  await expect(page).toHaveURL('https://app.optiomax.com/dashboard');
+  
   await page.context().storageState({
     path: authFile,
   });
